@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.boton-primario{
+    color: rgb(204, 196, 150);
+}

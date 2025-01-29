@@ -1,0 +1,11 @@
+.logo-login{
+    width: 30rem;
+    background-color: rgb(204, 196, 150);
+    border-radius: 10px;
+}
+
+.logo-dashboard{
+    width: 11rem;
+    background-color: rgb(204, 196, 150);
+    border-radius: 10px;
+}
