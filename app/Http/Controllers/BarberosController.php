@@ -65,7 +65,7 @@ class BarberosController extends Controller
                 return response()->json([
                     'success' => false,
                     'message' => 'barbero no encontrado'
-                ], 204);
+                ], 404);
             }
             return response()->json([
                 'success' => true,

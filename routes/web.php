@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function () {
 
     //pedidos
     Route::get('/pedidos', [PedidosController::class, 'create'])->name('pedidos');
+    Route::post('/crear-pedido', [PedidosController::class, 'store']);
 
 
     //inventario
