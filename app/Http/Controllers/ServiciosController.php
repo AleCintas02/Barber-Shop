@@ -19,7 +19,7 @@ class ServiciosController extends Controller
                 'success' => true,
                 'message' => "Lista de servicios",
                 'data' => $servicios
-            ], 201);
+            ], 200);
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
@@ -82,7 +82,7 @@ class ServiciosController extends Controller
                 return response()->json([
                     'success' => false,
                     'message' => 'servicio no encontrado'
-                ]);
+                ], 404);
             }
 
             $servicioEditar->update($validateData);
@@ -92,13 +92,13 @@ class ServiciosController extends Controller
                 'success' => true,
                 'message' => 'servicio editado con exito',
                 'servicio' => $servicioEditar
-            ]);
+            ], 200);
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
                 'message' => 'error al editar servicio',
                 'error' => $e->getMessage()
-            ]);
+            ], 500);
         }
     }
     public function destroy(string $id)
@@ -111,7 +111,7 @@ class ServiciosController extends Controller
                 return response()->json([
                     'success' => false,
                     'message' => 'Servicio no encontrado',
-                ]);
+                ], 404);
             }
 
             $servicioEliminar->delete();
@@ -119,14 +119,14 @@ class ServiciosController extends Controller
                 'success' => true,
                 'message' => 'Servicio eliminado',
                 'servicio' => $servicioEliminar
-            ]);
+            ],200);
 
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
                 'message' => 'Error al eliminar servicio',
                 'error' => $e->getMessage()
-            ]);
+            ],500);
         }
     }
     public function show(string $id)
@@ -137,19 +137,19 @@ class ServiciosController extends Controller
                 return response()->json([
                     'success' => false,
                     'message' => 'servicio no encontrado'
-                ]);
+                ],404);
             }
 
             return response()->json([
                 'success' => true,
                 'servicio' => $servicio
-            ]);
+            ],200);
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
                 'message' => 'Error al encontrar servicio',
                 'error' => $e->getMessage()
-            ]);
+            ],500);
         }
     }
     public function edit(string $id) {}

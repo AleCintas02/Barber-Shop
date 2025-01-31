@@ -30,12 +30,11 @@ class PedidosController extends Controller
         ]);
 
         try {
-            // Crear un nuevo pedido y asignar valores directamente
             $nuevoPedido = new Pedido();
-            $nuevoPedido->nombre_cliente = $validateData['nombre_cliente']; // Corregido
+            $nuevoPedido->nombre_cliente = $validateData['nombre_cliente']; 
             $nuevoPedido->id_barbero = $validateData['id_barbero'] ?? null;
             $nuevoPedido->id_servicio = $validateData['id_servicio'] ?? null;
-            $nuevoPedido->estado = $validateData['estado'] ?? 'pendiente'; // Estado por defecto si no se envía
+            $nuevoPedido->estado = $validateData['estado'] ?? 'pendiente';
             $nuevoPedido->save();
 
             return response()->json([
